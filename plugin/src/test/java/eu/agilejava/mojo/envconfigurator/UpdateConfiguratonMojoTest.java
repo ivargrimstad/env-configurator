@@ -15,25 +15,41 @@ limitations under the License.
  */
 package eu.agilejava.mojo.envconfigurator;
 
-import java.lang.UnsupportedOperationException;
+import org.junit.Before;
 import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
+import org.powermock.api.easymock.mockpolicies.Slf4jMockPolicy;
+import org.powermock.core.classloader.annotations.MockPolicy;
+import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.slf4j.Logger;
+
+import static org.powermock.api.easymock.PowerMock.*;
+import static org.powermock.reflect.Whitebox.*;
 
 /**
  *
- * @author ivar
+ * @author Ivar grimstad (ivar.grimstad@gmail.com)
  */
-@RunWith(JUnit4ClassRunner.class) // TODO: Remove when UnsupportedOperationException is not expected...
+@RunWith(PowerMockRunner.class)
+@MockPolicy(Slf4jMockPolicy.class)
 public class UpdateConfiguratonMojoTest extends TestCase {
 
+   private UpdateConfiguratonMojo instance = new UpdateConfiguratonMojo();
+
+   @Before
+   public void setup() {
+   }
+   
    /**
     * Test of execute method, of class UpdateConfiguratonMojo.
     */
-   @Test(expected=UnsupportedOperationException.class)
+   @Test
    public void testExecute() throws Exception {
-      UpdateConfiguratonMojo instance = new UpdateConfiguratonMojo();
+      
+      replayAll();
       instance.execute();
+      verifyAll();
    }
 }

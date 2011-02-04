@@ -12,7 +12,16 @@
          <plugin>
             <groupId>eu.agilejava.mojo</groupId>
             <artifactId>env-configurator</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.1-SNAPSHOT</version>
+            <executions>
+               <execution>
+                  <id>doit</id>
+                  <phase>install</phase>
+                  <goals>
+                     <goal>update</goal>
+                  </goals>
+               </execution>
+            </executions>
             <configuration>
             </configuration>
          </plugin>

@@ -18,6 +18,8 @@ package eu.agilejava.mojo.envconfigurator;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @goal update
@@ -28,8 +30,10 @@ import org.apache.maven.plugin.MojoFailureException;
  */
 public class UpdateConfiguratonMojo extends AbstractMojo {
 
+   private static final Logger LOG = LoggerFactory.getLogger(UpdateConfiguratonMojo.class);
+         
    @Override
    public void execute() throws MojoExecutionException, MojoFailureException {
-      throw new UnsupportedOperationException("Not supported yet.");
+      LOG.debug("execute called");
    }
 }
