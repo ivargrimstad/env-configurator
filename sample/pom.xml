@@ -1,0 +1,41 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>eu.agilejava.mojo</groupId>
+   <artifactId>env-configurator-sample</artifactId>
+   <packaging>jar</packaging>
+   <version>0.1-SNAPSHOT</version>
+   <name>eu.agilejava.mojo::env-configurator-sample</name>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>eu.agilejava.mojo</groupId>
+            <artifactId>env-configurator</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <configuration>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+   <scm>
+      <connection>scm:hg:file://${basedir}</connection>
+      <developerConnection>scm:hg:file://${basedir}</developerConnection>
+   </scm>
+
+   <properties xmlns="http://www.netbeans.org/ns/maven-properties-data/1">
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+      <!-- Code formatting rules for NetBeans -->
+      <org-netbeans-modules-editor-indent.CodeStyle.usedProfile>project</org-netbeans-modules-editor-indent.CodeStyle.usedProfile>
+      <org-netbeans-modules-editor-indent.CodeStyle.project.spaces-per-tab>3</org-netbeans-modules-editor-indent.CodeStyle.project.spaces-per-tab>
+      <org-netbeans-modules-editor-indent.CodeStyle.project.tab-size>3</org-netbeans-modules-editor-indent.CodeStyle.project.tab-size>
+      <org-netbeans-modules-editor-indent.CodeStyle.project.indent-shift-width>3</org-netbeans-modules-editor-indent.CodeStyle.project.indent-shift-width>
+      <org-netbeans-modules-editor-indent.CodeStyle.project.text-limit-width>120</org-netbeans-modules-editor-indent.CodeStyle.project.text-limit-width>
+      <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.continuationIndentSize>6</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.continuationIndentSize>
+      <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaceBeforeArrayInitLeftBrace>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaceBeforeArrayInitLeftBrace>
+   </properties>
+
+</project>
+
