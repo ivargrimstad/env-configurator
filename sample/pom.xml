@@ -20,10 +20,12 @@
                   <goals>
                      <goal>update</goal>
                   </goals>
+                  <configuration>
+                     <environment>test</environment>
+                     <template>${basedir}${file.separator}src${file.separator}main${file.separator}resources${file.separator}template.properties</template>
+                  </configuration>
                </execution>
             </executions>
-            <configuration>
-            </configuration>
          </plugin>
       </plugins>
    </build>
