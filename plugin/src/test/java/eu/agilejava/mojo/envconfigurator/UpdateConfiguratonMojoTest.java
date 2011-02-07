@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright [2011] [Ivar Grimstad (ivar.grimstad@gmail.com)]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,34 +15,46 @@
  */
 package eu.agilejava.mojo.envconfigurator;
 
+import java.util.Collections;
+import java.io.File;
 import org.junit.Before;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.powermock.api.easymock.mockpolicies.Slf4jMockPolicy;
-import org.powermock.core.classloader.annotations.MockPolicy;
+import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.powermock.api.easymock.PowerMock.*;
+import static org.powermock.reflect.Whitebox.*;
+import static org.easymock.EasyMock.expect;
 
 /**
  *
  * @author Ivar grimstad (ivar.grimstad@gmail.com)
  */
 @RunWith(PowerMockRunner.class)
+@PrepareForTest(UpdateConfiguratonMojo.class)
 public class UpdateConfiguratonMojoTest extends TestCase {
 
+   private File inMock = createMock(File.class);
+   private File outMock = createMock(File.class);
    private UpdateConfiguratonMojo instance = new UpdateConfiguratonMojo();
 
    @Before
    public void setup() {
+      setInternalState(instance, "environment", "dev");
    }
-   
+
    /**
     * Test of execute method, of class UpdateConfiguratonMojo.
     */
    @Test
    public void testExecute() throws Exception {
+
+      File[] files = new File[] {};
+      
+      expectNew(File.class, "/home/ivar/Development/personal/env-configurator/sample/src/main/resources/dev").andReturn(inMock);
+      expect(inMock.listFiles()).andReturn(files);
       
       replayAll();
       instance.execute();

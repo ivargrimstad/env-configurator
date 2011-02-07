@@ -21,7 +21,7 @@
                      <goal>update</goal>
                   </goals>
                   <configuration>
-                     <environment>test</environment>
+                     <environment>dev</environment>
                      <template>${basedir}${file.separator}src${file.separator}main${file.separator}resources${file.separator}template.properties</template>
                   </configuration>
                </execution>
