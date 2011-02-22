@@ -1,5 +1,5 @@
 /**
- * Copyright [2011] [Ivar Grimstad (ivar.grimstad@gmail.com)]
+ * Copyright 2011 Ivar Grimstad (ivar.grimstad@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Properties;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -48,21 +49,25 @@ public class UpdateConfiguratonMojo extends AbstractConfigurationMojo {
       File sourceFolder = new File("/home/ivar/Development/personal/env-configurator/sample/src/main/resources/" + getEnvironment());
       String targetFolder = "/home/ivar/Development/personal/env-configurator/sample/target";
 
-
-
-      for (File in : sourceFolder.listFiles()) {
+      for (File file : sourceFolder.listFiles()) {
 
          try {
-            copy(in, new File(targetFolder + File.separator + in.getName()));
-
+            
+            Properties props = new Properties();
+            props.load(new FileInputStream(file));
+            
+            System.out.println(props.keySet());
+            
+//            copy(file, new File(targetFolder + File.separator + file.getName()));
+            System.setProperties(props);
 
          } catch (IOException e) {
-            getLog().error("Error copying file: " + in.getName());
+            getLog().error("Error copying file: " + file.getName());
             throw new MojoExecutionException("jalla" + e);
          }
       }
-
-
+      
+      System.out.println(System.getProperty("property-one"));
 
       getLog().info("Finished!");
 
